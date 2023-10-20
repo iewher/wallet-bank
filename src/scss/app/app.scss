@@ -1,8 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+.main {
+  height: 100vh;
+  width: 100%;
+
+  &-container {
+    padding: 50px;
+    height: 100%;
+    display: flex;
+    gap: 55px;
+
+    &__sidebar {
+      border: 1px solid black;
+      width: 337px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 55px;
+
+      .card {
+        height: 571px;
+        border: 1px solid black;
+      }
+
+      .trasnfer {
+        height: 276px;
+        border: 1px solid black;
+      }
+    }
+
+    &__content {
+      border: 1px solid black;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(8, 1fr);
+      gap: 25px;
+
+      .block {
+        grid-column-start: 1;
+        grid-column-end: 7;
+        grid-row-start: 1;
+        border: 1px solid black;
+      }
+
+      .chart {
+        border: 1px solid black;
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 2;
+        grid-row-end: 7;
+      }
+
+      .saving {
+        border: 1px solid black;
+        grid-column-start: 5;
+        grid-column-end: 7;
+        grid-row-start: 2;
+        grid-row-end: 7;
+      }
+
+      .expenses {
+        border: 1px solid black;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 7;
+        grid-row-end: 9;
+      }
+
+      .transactions {
+        border: 1px solid black;
+        grid-column-start: 4;
+        grid-column-end: 7;
+        grid-row-start: 7;
+        grid-row-end: 9;
+      }
+    }
+  }
 }
