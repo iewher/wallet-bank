@@ -4,7 +4,7 @@ import Plus from "../../svg/sidebar/plus.svg";
 import ArrowUp from "../../svg/sidebar/arrow-up.svg";
 import ArrowDown from "../../svg/sidebar/arrow-down.svg";
 
-const Sidebar = () => {
+const Sidebar: React.FunctionComponent = () => {
   return (
     <div className="main-container__sidebar">
       <div className="card">

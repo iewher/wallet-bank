@@ -1,4 +1,5 @@
 import React from "react";
+import "../../scss/block/block.scss";
 
 interface CardProps {
   title: string;

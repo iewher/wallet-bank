@@ -5,7 +5,7 @@ import Saving from "../saving/saving";
 import Expenses from "../expenses/expenses";
 import Transactions from "../transactions/transactions";
 
-const Content = () => {
+const Content: React.FunctionComponent = () => {
   return (
     <div className="main-container__content">
       <Block />

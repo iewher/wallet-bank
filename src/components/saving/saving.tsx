@@ -1,6 +1,7 @@
 import React from "react";
+import "../../scss/saving/saving.scss";
 
-const Saving = () => {
+const Saving: React.FunctionComponent = () => {
   return (
     <div className="saving">
       <p>saving</p>
