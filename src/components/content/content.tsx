@@ -1,13 +1,18 @@
 import React from "react";
+import Block from "../block/block";
+import Chart from "../chart/chart";
+import Saving from "../saving/saving";
+import Expenses from "../expenses/expenses";
+import Transactions from "../transactions/transactions";
 
 const Content = () => {
   return (
     <div className="main-container__content">
-      <div className="block">block</div>
-      <div className="chart">chart</div>
-      <div className="saving">saving</div>
-      <div className="expenses">expenses</div>
-      <div className="transactions">transactions</div>
+      <Block />
+      <Chart />
+      <Saving />
+      <Expenses />
+      <Transactions />
     </div>
   );
 };
