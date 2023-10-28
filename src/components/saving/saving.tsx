@@ -1,10 +1,40 @@
 import React from "react";
 import "../../scss/saving/saving.scss";
+import { Slider } from "antd";
+
+interface ListProps {
+  title: string;
+  price: number;
+}
+
+const List: React.FunctionComponent<ListProps> = ({ title, price }) => {
+  return (
+    <div className="list">
+      <div className="list-title">
+        <p>{title}</p>
+        <Slider value={price} max={1000} />
+      </div>
+      <div className="list-price">
+        <p>{"$" + price}</p>
+      </div>
+    </div>
+  );
+};
 
 const Saving: React.FunctionComponent = () => {
   return (
     <div className="saving">
-      <h1>My Savings</h1>
+      <div className="saving-title">
+        <h1>My Savings</h1>
+        <button>View all</button>
+      </div>
+      <div className="saving-list">
+        <List title="Gaming PC" price={309} />
+        <List title="New house" price={950} />
+        <List title="Summer trip" price={550} />
+        <List title="Wedding" price={620} />
+        <List title="Wedding" price={170} />
+      </div>
     </div>
   );
 };

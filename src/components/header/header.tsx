@@ -40,7 +40,6 @@ const Header: React.FunctionComponent = () => {
             <Switch
               // checkedChildren={<Setting />}
               // unCheckedChildren={<Push />}
-              defaultChecked
             />
           </div>
           <button>
