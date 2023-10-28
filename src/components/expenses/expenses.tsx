@@ -4,7 +4,7 @@ import "../../scss/expenses/expenses.scss";
 const Expenses: React.FunctionComponent = () => {
   return (
     <div className="expenses">
-      <p>expenses</p>
+      <h1>All Expenses</h1>
     </div>
   );
 };

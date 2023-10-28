@@ -4,7 +4,7 @@ import "../../scss/saving/saving.scss";
 const Saving: React.FunctionComponent = () => {
   return (
     <div className="saving">
-      <p>saving</p>
+      <h1>My Savings</h1>
     </div>
   );
 };

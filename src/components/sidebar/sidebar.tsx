@@ -3,6 +3,7 @@ import Card from "../../svg/sidebar/card.svg";
 import Plus from "../../svg/sidebar/plus.svg";
 import ArrowUp from "../../svg/sidebar/arrow-up.svg";
 import ArrowDown from "../../svg/sidebar/arrow-down.svg";
+import ArrowRight from "../../svg/sidebar/arrow-right.svg";
 
 const Sidebar: React.FunctionComponent = () => {
   return (
@@ -51,6 +52,9 @@ const Sidebar: React.FunctionComponent = () => {
           <button>1</button>
           <button>1</button>
           <button>1</button>
+          <button>
+            <img src={ArrowRight} alt="ArrowRight" />
+          </button>
         </div>
         <div className="transfer__input">
           <p>Card Number</p>

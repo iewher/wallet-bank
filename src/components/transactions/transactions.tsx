@@ -4,7 +4,7 @@ import "../../scss/transactions/transactions.scss";
 const Transactions: React.FunctionComponent = () => {
   return (
     <div className="transactions">
-      <p>transactions</p>
+      <h1>History Transactions</h1>
     </div>
   );
 };

@@ -108,6 +108,7 @@
           justify-content: center;
           align-items: center;
           gap: 12px;
+          cursor: pointer;
         }
       }
 
@@ -128,6 +129,14 @@
             width: 42px;
             border: none;
             border-radius: 50%;
+            cursor: pointer;
+
+            &:nth-child(6) {
+              background: none;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
           }
         }
 
@@ -164,6 +173,7 @@
             color: white;
             border: none;
             margin-bottom: 40px;
+            cursor: pointer;
 
             &:nth-child(2) {
               background-color: #f5f6fa;
@@ -181,6 +191,17 @@
       grid-template-columns: repeat(6, 1fr);
       grid-template-rows: repeat(9, 1fr);
       gap: 25px;
+
+      .expenses,
+      .chart,
+      .saving,
+      .transactions {
+        padding: 25px;
+
+        h1 {
+          font-size: 22px;
+        }
+      }
     }
   }
 }

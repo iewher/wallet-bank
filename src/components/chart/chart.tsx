@@ -4,7 +4,7 @@ import "../../scss/chart/chart.scss";
 const Chart: React.FunctionComponent = () => {
   return (
     <div className="chart">
-      <p>Chart</p>
+      <h1>Money Flow</h1>
     </div>
   );
 };
