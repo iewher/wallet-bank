@@ -1,7 +1,7 @@
 {
-  "name": "wallet-bank",
+  "name": "wallet-dashboard",
   "version": "0.1.0",
-  "homepage": "https://iewher.github.io/wallet-bank",
+  "homepage": "https://iewher.github.io/wallet-dashboard",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
