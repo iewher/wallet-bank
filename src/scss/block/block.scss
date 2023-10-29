@@ -32,8 +32,27 @@
     }
 
     &__proc {
-      p {
-        font-size: 14px;
+      &-plus,
+      &-minus {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        border-radius: 8px;
+        border: none;
+
+        p {
+          font-size: 14px;
+        }
+      }
+
+      &-plus {
+        color: #41da90;
+        background-color: #d8ffec;
+      }
+
+      &-minus {
+        color: #e74a51;
+        background-color: #fad5d7;
       }
     }
   }

@@ -1,9 +1,9 @@
 import React from "react";
 import Card from "../../svg/sidebar/card.svg";
 import Plus from "../../svg/sidebar/plus.svg";
-import ArrowUp from "../../svg/sidebar/arrow-up.svg";
-import ArrowDown from "../../svg/sidebar/arrow-down.svg";
 import ArrowRight from "../../svg/sidebar/arrow-right.svg";
+import { AiOutlineArrowUp } from "react-icons/ai";
+import { AiOutlineArrowDown } from "react-icons/ai";
 
 const Sidebar: React.FunctionComponent = () => {
   return (
@@ -18,11 +18,11 @@ const Sidebar: React.FunctionComponent = () => {
           <div className="balance__balance-price">
             <p>$128,320</p>
             <p>
-              <img src={ArrowUp} alt="arrow-up" />
+              <AiOutlineArrowUp />
               23.12%
             </p>
             <p>
-              <img src={ArrowDown} alt="arrow-down" />
+              <AiOutlineArrowDown />
               23.12%
             </p>
           </div>
