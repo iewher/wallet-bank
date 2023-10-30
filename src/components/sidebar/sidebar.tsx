@@ -4,6 +4,7 @@ import Plus from "../../svg/sidebar/plus.svg";
 import ArrowRight from "../../svg/sidebar/arrow-right.svg";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import { AiOutlineArrowDown } from "react-icons/ai";
+import { AiOutlineUser } from "react-icons/ai";
 
 const Sidebar: React.FunctionComponent = () => {
   return (
@@ -47,11 +48,21 @@ const Sidebar: React.FunctionComponent = () => {
       <div className="transfer">
         <h1>Quick Transfer</h1>
         <div className="transfer__users">
-          <button>1</button>
-          <button>1</button>
-          <button>1</button>
-          <button>1</button>
-          <button>1</button>
+          <button>
+            <AiOutlineUser />
+          </button>
+          <button>
+            <AiOutlineUser />
+          </button>
+          <button>
+            <AiOutlineUser />
+          </button>
+          <button>
+            <AiOutlineUser />
+          </button>
+          <button>
+            <AiOutlineUser />
+          </button>
           <button>
             <img src={ArrowRight} alt="ArrowRight" />
           </button>
