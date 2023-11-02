@@ -5,4 +5,58 @@
   grid-column-end: 7;
   grid-row-start: 7;
   grid-row-end: 10;
+
+  &-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+
+    h1 {
+      font-size: 22px;
+    }
+
+    button {
+      font-size: 16px;
+      color: #00b3ff;
+      background-color: white;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  &-view {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .card {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    &-info {
+      display: flex;
+      gap: 14px;
+
+      &-image {
+        height: 54px;
+        width: 54px;
+      }
+
+      &-title {
+        display: flex;
+        flex-direction: column;
+
+        p {
+          font-size: 16px;
+
+          &:nth-child(1) {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
 }
