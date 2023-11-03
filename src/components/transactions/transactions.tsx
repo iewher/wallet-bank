@@ -1,25 +1,24 @@
 import React from "react";
 import "../../scss/transactions/transactions.scss";
 import order from "../../svg/transactions/order.svg";
+import withdrawal from "../../svg/transactions/withdrawal.svg";
 
 interface CardProsp {
-  img: string;
   title: string;
   date: string | number;
   value: number;
 }
 
-const Card: React.FunctionComponent<CardProsp> = ({
-  img,
-  title,
-  date,
-  value,
-}) => {
+const Card: React.FunctionComponent<CardProsp> = ({ title, date, value }) => {
   return (
     <div className="card">
       <div className="card-info">
         <div className="card-info-image">
-          <img src={img} alt="img" />
+          {title === "Order Revenue" ? (
+            <img src={order} alt="img" />
+          ) : (
+            <img src={withdrawal} alt="img" />
+          )}
         </div>
         <div className="card-info-title">
           <p>{title}</p>
@@ -39,9 +38,9 @@ const Transactions: React.FunctionComponent = () => {
         <button>View all</button>
       </div>
       <div className="transactions-view">
-        <Card img={order} title="Order Revenue" date="Apr 27, 22" value={874} />
-        <Card img={order} title="Order Revenue" date="Apr 27, 22" value={874} />
-        <Card img={order} title="Order Revenue" date="Apr 27, 22" value={874} />
+        <Card title="Order Revenue" date="Apr 27, 22" value={874} />
+        <Card title="Withdrawal Initiated" date="Apr 27, 22" value={874} />
+        <Card title="Order Revenue" date="Apr 27, 22" value={874} />
       </div>
     </div>
   );
