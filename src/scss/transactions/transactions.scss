@@ -57,6 +57,68 @@
           }
         }
       }
+
+      &-value {
+        &-plus {
+          color: #41da90;
+        }
+
+        &-minus {
+          color: #e74a51;
+        }
+      }
+    }
+  }
+}
+
+.ant-modal-content {
+  display: flex;
+  flex-direction: column;
+
+  .ant-modal-body {
+    .transactions-view {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+
+      .card {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        &-info {
+          display: flex;
+          gap: 14px;
+
+          &-image {
+            height: 54px;
+            width: 54px;
+          }
+
+          &-title {
+            display: flex;
+            flex-direction: column;
+
+            p {
+              font-size: 16px;
+
+              &:nth-child(1) {
+                font-weight: bold;
+              }
+            }
+          }
+
+          &-value {
+            &-plus {
+              color: #41da90;
+            }
+
+            &-minus {
+              color: #e74a51;
+            }
+          }
+        }
+      }
     }
   }
 }

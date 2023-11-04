@@ -47,3 +47,28 @@
     }
   }
 }
+
+.ant-modal-content {
+  display: flex;
+  flex-direction: column;
+
+  .ant-modal-body {
+    display: flex;
+    flex-direction: column;
+
+    .list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+
+      &-title {
+        width: 100%;
+      }
+
+      &-price {
+        display: flex;
+      }
+    }
+  }
+}
