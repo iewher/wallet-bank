@@ -3,7 +3,7 @@
   border-radius: 12px;
   grid-column-start: 4;
   grid-column-end: 7;
-  grid-row-start: 7;
+  grid-row-start: 8;
   grid-row-end: 10;
 
   &-title {
@@ -71,7 +71,7 @@
   }
 
   @media (max-width: 1350px) {
-    grid-row-start: 7;
+    grid-row-start: 8;
     grid-row-end: 9;
   }
 
