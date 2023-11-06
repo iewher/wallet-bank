@@ -46,6 +46,11 @@
       }
     }
   }
+
+  @media (max-width: 1350px) {
+    grid-column-start: 1;
+    grid-row-start: 5;
+  }
 }
 
 .ant-modal-content {

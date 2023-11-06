@@ -35,4 +35,14 @@
       }
     }
   }
+
+  &-line {
+    height: 100%;
+    max-height: 450px;
+  }
+
+  @media (max-width: 1350px) {
+    grid-column-end: 7;
+    grid-row-end: 5;
+  }
 }

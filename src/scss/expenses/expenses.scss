@@ -54,4 +54,16 @@
     justify-content: center;
     align-items: flex-start;
   }
+
+  @media (max-width: 1350px) {
+    grid-row-start: 7;
+    grid-row-end: 9;
+  }
+
+  @media (max-width: 1100px) {
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 7;
+    grid-row-end: 9;
+  }
 }

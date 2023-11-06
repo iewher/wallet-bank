@@ -17,10 +17,7 @@ const Chart: React.FunctionComponent = () => {
       </div>
       <div className="chart-line">
         <LineChart
-
-          width={900}
-          height={450}
-          series={[{ data: data, color: '#00b3ff' }]}
+          series={[{ data: data, color: "#00b3ff" }]}
           xAxis={[{ scaleType: "point", data: labels }]}
         />
       </div>
