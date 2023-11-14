@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../../svg/sidebar/card.svg";
 import Plus from "../../svg/sidebar/plus.svg";
 import ArrowRight from "../../svg/sidebar/arrow-right.svg";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import { AiOutlineUser } from "react-icons/ai";
+import { Modal } from "antd";
 
 const Sidebar: React.FunctionComponent = () => {
+  const [value, setValue] = useState<string>("");
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
+  const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
+    setValue(event.currentTarget.value);
+  };
+
   return (
     <div className="main-container__sidebar">
       <div className="card">
@@ -69,13 +77,35 @@ const Sidebar: React.FunctionComponent = () => {
         </div>
         <div className="transfer__input">
           <p>Card Number</p>
-          <input type="text" />
+          <input type="text" value={value} onChange={handleInputChange} />
         </div>
         <div className="transfer__send">
-          <button>Send money</button>
+          <button onClick={() => setOpenModal(true)}>Send money</button>
           <button>Save as Draft</button>
         </div>
       </div>
+      <Modal
+        title="Send money"
+        centered
+        open={openModal}
+        onOk={() => setOpenModal(false)}
+        onCancel={() => setOpenModal(false)}
+      >
+        <div className="transfer__send-modal">
+          {value.length > 0 ? (
+            <>
+              <p>Are you sure you want to transfer funds to this wallet?</p>
+              <h2>{value}</h2>
+              <p>Don't forget, you can transfer money to scammers</p>
+            </>
+          ) : (
+            <p>
+              You have not entered the address to which funds will be
+              transferred
+            </p>
+          )}
+        </div>
+      </Modal>
     </div>
   );
 };

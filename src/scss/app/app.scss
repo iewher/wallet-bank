@@ -226,3 +226,16 @@
     }
   }
 }
+
+.ant-modal-content {
+  display: flex;
+  flex-direction: column;
+
+  .ant-modal-body {
+    .transfer__send-modal {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}
