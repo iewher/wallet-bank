@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../scss/sidebar/sidebar.scss";
 import Card from "../../svg/sidebar/card.svg";
 import Plus from "../../svg/sidebar/plus.svg";
 import ArrowRight from "../../svg/sidebar/arrow-right.svg";
