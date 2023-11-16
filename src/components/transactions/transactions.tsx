@@ -40,7 +40,7 @@ const Card: React.FunctionComponent<CardProsp> = ({ title, date, value }) => {
 };
 
 const Transactions: React.FunctionComponent = () => {
-  const [openModal, setOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   return (
     <div className="transactions">

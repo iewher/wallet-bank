@@ -9,6 +9,7 @@ import Push from "../../svg/header/push.svg";
 import Setting from "../../svg/header/setting.svg";
 import { AiOutlineUser } from "react-icons/ai";
 import { Switch } from "antd";
+import { Badge } from "antd";
 
 // interface HeaderProps {}
 
@@ -38,13 +39,15 @@ const Header: React.FunctionComponent = () => {
         <div className="header-container__settings">
           <div className="switch">
             <Switch
-              // checkedChildren={<Setting />}
-              // unCheckedChildren={<Push />}
+            // checkedChildren={<Setting />}
+            // unCheckedChildren={<Push />}
             />
           </div>
-          <button>
-            <img src={Push} alt="Push" />
-          </button>
+          <Badge count={5}>
+            <button>
+              <img src={Push} alt="Push" />
+            </button>
+          </Badge>
           <button>
             <img src={Setting} alt="Setting" />
           </button>

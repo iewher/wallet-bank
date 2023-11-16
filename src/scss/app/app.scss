@@ -36,3 +36,20 @@
     }
   }
 }
+
+.ant-modal-content {
+  display: flex;
+  flex-direction: column;
+
+  .ant-modal-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      a {
+        font-weight: bold;
+      }
+    }
+  }
+}

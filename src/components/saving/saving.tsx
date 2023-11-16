@@ -23,7 +23,7 @@ const List: React.FunctionComponent<ListProps> = ({ title, price }) => {
 };
 
 const Saving: React.FunctionComponent = () => {
-  const [openModal, setOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   return (
     <div className="saving">
