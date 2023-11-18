@@ -1,3 +1,39 @@
+# Краткая справка
+
+Wallet-dashboard - инструмент для визуализации и анализа информации о финансах
+
+## Использованные UI
+
+1. Ant Design
+2. Material UI
+
+## Установка
+
+Перед запуском проекта обязательно прописать в терминал:
+
+### `npm install`
+
+либо
+
+### `npm install --force`
+
+## Планы по разработке
+
+1. Google authentication
+2. Добавить базу данных
+3. Смена темы
+4. Добавление различных функций
+
+# Обзор
+
+Краткий обзор проекта
+
+<div align="center">
+
+<image src="public/forgit/forgit.png" height="auto" width="650">
+  
+</div>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
