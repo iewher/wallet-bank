@@ -42,12 +42,17 @@
 
   .ant-modal-body {
     display: flex;
-    justify-content: center;
-    align-items: center;
 
-    p {
-      a {
-        font-weight: bold;
+    .qrcode {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      p {
+        a {
+          font-weight: bold;
+        }
       }
     }
   }

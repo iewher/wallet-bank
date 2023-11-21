@@ -31,15 +31,17 @@ const App: React.FunctionComponent = () => {
         onOk={() => setOpenModal(false)}
         onCancel={() => setOpenModal(false)}
       >
-        <h3>I would be grateful if you rate the work on github</h3>
-        <QRCode value={text || "-"} />
-        <p>Thank you in advance</p>
-        <p>
-          If so, here's the link:{" "}
-          <a href="https://github.com/iewher/wallet-dashboard">
-            https://github.com/iewher/wallet-dashboard
-          </a>
-        </p>
+        <div className="qrcode">
+          <h3>I would be grateful if you rate the work on github</h3>
+          <QRCode value={text || "-"} />
+          <p>Thank you in advance</p>
+          <p>
+            If so, here's the link:{" "}
+            <a href="https://github.com/iewher/wallet-dashboard">
+              https://github.com/iewher/wallet-dashboard
+            </a>
+          </p>
+        </div>
       </Modal>
     </PageLayout>
   );
