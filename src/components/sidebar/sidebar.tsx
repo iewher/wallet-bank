@@ -11,9 +11,29 @@ import { Modal } from "antd";
 const Sidebar: React.FunctionComponent = () => {
   const [value, setValue] = useState<string>("");
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const [usernames, setUsernames] = useState<string[]>([]);
+  const [selectedUser, setSelectedUser] = useState<string | null>(null);
 
   const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
     setValue(event.currentTarget.value);
+  };
+
+  const handleAddUser = () => {
+    if (value.trim() !== "") {
+      setUsernames((prevUsernames) => [...prevUsernames, value.trim()]);
+      setValue("");
+    }
+  };
+
+  const handleRemoveUser = (index: number) => {
+    setUsernames((prevUsernames) =>
+      prevUsernames.filter((_, i) => i !== index)
+    );
+  };
+
+  const handleSelectUser = (username: string) => {
+    setSelectedUser(username);
+    setValue(username);
   };
 
   return (
@@ -57,21 +77,11 @@ const Sidebar: React.FunctionComponent = () => {
       <div className="transfer">
         <h1>Quick Transfer</h1>
         <div className="transfer__users">
-          <button>
-            <AiOutlineUser />
-          </button>
-          <button>
-            <AiOutlineUser />
-          </button>
-          <button>
-            <AiOutlineUser />
-          </button>
-          <button>
-            <AiOutlineUser />
-          </button>
-          <button>
-            <AiOutlineUser />
-          </button>
+          {usernames.map((username, index) => (
+            <button key={index} onClick={() => handleSelectUser(username)}>
+              {username}
+            </button>
+          ))}
           <button>
             <img src={ArrowRight} alt="ArrowRight" />
           </button>
@@ -82,7 +92,7 @@ const Sidebar: React.FunctionComponent = () => {
         </div>
         <div className="transfer__send">
           <button onClick={() => setOpenModal(true)}>Send money</button>
-          <button>Save as Draft</button>
+          <button onClick={handleAddUser}>Save as Draft</button>
         </div>
       </div>
       <Modal
