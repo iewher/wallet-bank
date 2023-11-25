@@ -5,12 +5,12 @@ import Plus from "../../svg/sidebar/plus.svg";
 import ArrowRight from "../../svg/sidebar/arrow-right.svg";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import { AiOutlineArrowDown } from "react-icons/ai";
-import { AiOutlineUser } from "react-icons/ai";
 import { Modal } from "antd";
 
 const Sidebar: React.FunctionComponent = () => {
   const [value, setValue] = useState<string>("");
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const [openModalUser, setOpenModalUser] = useState<boolean>(false);
   const [usernames, setUsernames] = useState<string[]>([]);
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
 
@@ -22,6 +22,7 @@ const Sidebar: React.FunctionComponent = () => {
     if (value.trim() !== "") {
       setUsernames((prevUsernames) => [...prevUsernames, value.trim()]);
       setValue("");
+      setOpenModalUser(false);
     }
   };
 
@@ -82,9 +83,6 @@ const Sidebar: React.FunctionComponent = () => {
               {username}
             </button>
           ))}
-          <button>
-            <img src={ArrowRight} alt="ArrowRight" />
-          </button>
         </div>
         <div className="transfer__input">
           <p>Card Number</p>
@@ -92,7 +90,7 @@ const Sidebar: React.FunctionComponent = () => {
         </div>
         <div className="transfer__send">
           <button onClick={() => setOpenModal(true)}>Send money</button>
-          <button onClick={handleAddUser}>Save as Draft</button>
+          <button onClick={() => setOpenModalUser(true)}>Save as Draft</button>
         </div>
       </div>
       <Modal
@@ -108,6 +106,27 @@ const Sidebar: React.FunctionComponent = () => {
               <p>Are you sure you want to transfer funds to this wallet?</p>
               <h2>{value}</h2>
               <p>Don't forget, you can transfer money to scammers</p>
+            </>
+          ) : (
+            <p>
+              You have not entered the address to which funds will be
+              transferred
+            </p>
+          )}
+        </div>
+      </Modal>
+      <Modal
+        title="Added user"
+        centered
+        open={openModalUser}
+        onOk={() => handleAddUser()}
+        onCancel={() => setOpenModalUser(false)}
+      >
+        <div className="transfer__send-modal">
+          {value.length > 0 ? (
+            <>
+              <p>Do you want to add a user?</p>
+              <h2>{value}</h2>
             </>
           ) : (
             <p>

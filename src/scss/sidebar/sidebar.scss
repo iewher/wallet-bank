@@ -114,16 +114,16 @@
       margin-bottom: 20px;
 
       button {
-        background-color: #d9d9d9;
-        height: 42px;
-        width: 42px;
-        border: none;
+        border: 1px solid #e6e9ee;
+        background-color: white;
+        height: 45px;
+        width: 45px;
         border-radius: 50%;
         cursor: pointer;
         display: flex;
-        justify-content: center;
         align-items: center;
-
+        overflow: hidden;
+        
         svg {
           height: 15px;
           width: 15px;
