@@ -14,6 +14,9 @@ const Sidebar: React.FunctionComponent = () => {
   const [usernames, setUsernames] = useState<string[]>([]);
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
 
+  //TODO: Добавить Modal при нажатии на юзера, с методоми "выбрать" "удалить"
+  //TODO: Подправить кнопки на модалках
+
   const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
     setValue(event.currentTarget.value);
   };
