@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../../scss/sidebar/sidebar.scss";
 import Card from "../../svg/sidebar/card.svg";
 import Plus from "../../svg/sidebar/plus.svg";
-import ArrowRight from "../../svg/sidebar/arrow-right.svg";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import { Modal } from "antd";
@@ -27,12 +26,6 @@ const Sidebar: React.FunctionComponent = () => {
       setValue("");
       setOpenModalUser(false);
     }
-  };
-
-  const handleRemoveUser = (index: number) => {
-    setUsernames((prevUsernames) =>
-      prevUsernames.filter((_, i) => i !== index)
-    );
   };
 
   const handleSelectUser = (username: string) => {
