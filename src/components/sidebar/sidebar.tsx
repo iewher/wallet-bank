@@ -11,7 +11,7 @@ const Sidebar: React.FunctionComponent = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [openModalUser, setOpenModalUser] = useState<boolean>(false);
   const [usernames, setUsernames] = useState<string[]>([]);
-  const [selectedUser, setSelectedUser] = useState<string | null>(null);
+  const [_, setSelectedUser] = useState<string | null>(null);
 
   //TODO: Добавить Modal при нажатии на юзера, с методоми "выбрать" "удалить"
   //TODO: Подправить кнопки на модалках
