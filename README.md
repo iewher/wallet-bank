@@ -13,10 +13,6 @@ Wallet-dashboard - инструмент для визуализации и ан�
 
 ### `npm install`
 
-либо
-
-### `npm install --force`
-
 ## Планы по разработке
 
 1. Google authentication
