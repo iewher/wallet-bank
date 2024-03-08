@@ -1,0 +1,74 @@
+.Header {
+  height: 76px;
+  margin: 0 50px 0 50px;
+
+  .Container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+
+    .Buttons {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      button {
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        font-size: 16px;
+        transition: 0.2s;
+        color: #afafaf;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        background-color: #ffffff;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #e3f6fe;
+          color: #00b3ff;
+        }
+      }
+    }
+
+    .Settings {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      .Switch {
+        height: 36px;
+        display: flex;
+        align-items: center;
+
+        button {
+          height: 23px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      button {
+        background-color: #f5f6fa;
+        border: none;
+        border-radius: 50%;
+        height: 36px;
+        width: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+          background-color: #e3f6fe;
+          color: #00b3ff;
+        }
+      }
+    }
+  }
+}
