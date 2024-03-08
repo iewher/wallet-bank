@@ -5,7 +5,7 @@ type ButtonProps = {
   children: React.ReactNode;
   loading?: boolean;
   icon?: React.ReactNode;
-} & React.ComponentPropsWithoutRef<'button'>
+} & React.ComponentPropsWithoutRef<"button">;
 
 export const PrimaryButton = (props: ButtonProps) => {
   const { children, loading, icon } = props;

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import { AiOutlineArrowDown } from "react-icons/ai";
+import { PrimaryButton } from "../buttons";
 import styles from "./index.module.scss";
 
 const Sidebar: React.FunctionComponent = () => {
@@ -34,9 +35,6 @@ const Sidebar: React.FunctionComponent = () => {
 
   return (
     <div className={styles.Sidebar}>
-      <div className={styles.Card}>
-        <h1>My Card</h1>
-      </div>
       <div className={styles.Balance}>
         <div className={styles.Block}>
           <p>Your Balance</p>
@@ -64,15 +62,18 @@ const Sidebar: React.FunctionComponent = () => {
         </div>
       </div>
       <div className={styles.AddCard}>
-        <button>Add card</button>
+        <PrimaryButton>Add card</PrimaryButton>
       </div>
       <div className={styles.Transfer}>
         <h1>Quick Transfer</h1>
         <div className={styles.Users}>
           {usernames.map((username, index) => (
-            <button key={index} onClick={() => handleSelectUser(username)}>
+            <PrimaryButton
+              key={index}
+              onClick={() => handleSelectUser(username)}
+            >
               {username}
-            </button>
+            </PrimaryButton>
           ))}
         </div>
         <div className={styles.Input}>
@@ -80,8 +81,12 @@ const Sidebar: React.FunctionComponent = () => {
           <input type="text" value={value} onChange={handleInputChange} />
         </div>
         <div className={styles.Send}>
-          <button onClick={() => setOpenModal(true)}>Send money</button>
-          <button onClick={() => setOpenModalUser(true)}>Save as Draft</button>
+          <PrimaryButton onClick={() => setOpenModal(true)}>
+            Send money
+          </PrimaryButton>
+          <PrimaryButton onClick={() => setOpenModalUser(true)}>
+            Save as Draft
+          </PrimaryButton>
         </div>
       </div>
     </div>

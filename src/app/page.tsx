@@ -1,4 +1,3 @@
-import React from "react";
 import Block from "@/components/block";
 import Chart from "@/components/chart";
 import Saving from "@/components/saving";
@@ -7,17 +6,21 @@ import Transactions from "@/components/transactions";
 import Sidebar from "@/components/sidebar";
 import styles from "./page.module.scss";
 
-const Content: React.FunctionComponent = () => {
+const Page: React.FunctionComponent = () => {
   return (
-    <div className={styles.Content}>
-      <Sidebar />
-      <Block />
-      <Chart />
-      <Saving />
-      <Expenses />
-      <Transactions />
+    <div className={styles.Page}>
+      <div>
+        <Sidebar />
+      </div>
+      <div className={styles.Content}>
+        <Block />
+        <Chart />
+        <Saving />
+        <Expenses />
+        <Transactions />
+      </div>
     </div>
   );
 };
 
-export default Content;
+export default Page;

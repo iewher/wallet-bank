@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Modal } from "antd";
-import { Slider } from "antd";
+import { PrimaryButton } from "../buttons";
 import styles from "./index.module.scss";
 
 interface ListProps {
@@ -15,7 +14,6 @@ const List: React.FunctionComponent<ListProps> = ({ title, price }) => {
     <div className={styles.List}>
       <div className={styles.Title}>
         <p>{title}</p>
-        <Slider value={price} max={1000} />
       </div>
       <div className={styles.Price}>
         <p>{"$" + price}</p>
@@ -31,33 +29,17 @@ const Saving: React.FunctionComponent = () => {
     <div className={styles.Saving}>
       <div className={styles.Title}>
         <h1>My Savings</h1>
-        <button onClick={() => setOpenModal(true)}>View all</button>
+        <PrimaryButton onClick={() => setOpenModal(true)}>
+          View all
+        </PrimaryButton>
       </div>
-      <div className={styles.List}>
+      <div className={styles.Lists}>
         <List title="Gaming PC" price={309} />
         <List title="New house" price={950} />
         <List title="Summer trip" price={550} />
         <List title="Wedding" price={620} />
         <List title="Wedding" price={170} />
       </div>
-      <Modal
-        title="All My Savings"
-        centered
-        open={openModal}
-        onOk={() => setOpenModal(false)}
-        onCancel={() => setOpenModal(false)}
-      >
-        <List title="Gaming PC" price={309} />
-        <List title="New house" price={950} />
-        <List title="Summer trip" price={550} />
-        <List title="Wedding" price={620} />
-        <List title="Wedding" price={170} />{" "}
-        <List title="Gaming PC" price={309} />
-        <List title="New house" price={950} />
-        <List title="Summer trip" price={550} />
-        <List title="Wedding" price={620} />
-        <List title="Wedding" price={170} />
-      </Modal>
     </div>
   );
 };

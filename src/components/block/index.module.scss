@@ -1,12 +1,9 @@
 .Block {
-  grid-column-start: 1;
-  grid-column-end: 7;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-content: space-between;
-  gap: 25px;
+  grid-column-end: span 4;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  height: fit-content;
 
   .Card {
     height: 85px;
@@ -19,47 +16,36 @@
     align-items: center;
 
     .Number {
-      p {
-        &:nth-child(1) {
-          font-size: 16px;
-          color: #afafaf;
-        }
-
-        &:nth-child(2) {
-          font-size: clamp(15px, 1vw, 20px);
-          color: #15223c;
-          font-weight: bold;
-        }
-      }
-    }
-
-    .Proc {
-      &-plus,
-      &-minus {
-        display: flex;
-        align-items: center;
-        padding: 8px;
-        border-radius: 8px;
-        border: none;
-
-        p {
-          font-size: 14px;
-        }
-      }
-
-      .Plus {
-        color: #41da90;
-        background-color: #d8ffec;
-      }
-
-      .Minus {
-        color: #e74a51;
-        background-color: #fad5d7;
-      }
+      display: flex;
+      flex-direction: column;
     }
   }
 
-  @media (max-width: 1350px) {
-    grid-template-columns: repeat(2, 1fr);
+  .Proc {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+
+    .Plus,
+    .Minus {
+      display: flex;
+      align-items: center;
+    }
+
+    .Plus {
+      color: #41da90;
+      background-color: #d8ffec;
+    }
+
+    .Minus {
+      color: #e74a51;
+      background-color: #fad5d7;
+    }
+
+    p {
+      font-size: 14px;
+    }
   }
 }

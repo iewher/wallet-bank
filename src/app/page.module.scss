@@ -1,17 +1,14 @@
-.Content {
+.Page {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 25px;
+  display: flex;
+  padding: 16px;
 
-  .expenses,
-  .chart,
-  .saving,
-  .transactions {
-    padding: 25px;
-
-    h1 {
-      font-size: 22px;
-    }
+  .Content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 0 16px;
+    grid-auto-rows: auto;
+    width: 100%;
   }
 }

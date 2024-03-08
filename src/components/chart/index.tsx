@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { LineChart } from "@mui/x-charts/LineChart";
 import { Dropdown, MenuProps } from "antd";
+import { PrimaryButton } from "../buttons";
 import styles from "./index.module.scss";
 
 const items: MenuProps["items"] = [
@@ -57,10 +58,10 @@ const Chart: React.FunctionComponent = () => {
     <div className={styles.Chart}>
       <div className={styles.Title}>
         <h1>Money Flow</h1>
-        <div className={styles.Buttons}>
-          <button>Money Flow</button>
+        <div className={styles.Actions}>
+          <PrimaryButton>Money Flow</PrimaryButton>
           <Dropdown menu={{ items }}>
-            <button>{month}</button>
+            <PrimaryButton>{month}</PrimaryButton>
           </Dropdown>
         </div>
       </div>

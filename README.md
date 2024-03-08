@@ -29,7 +29,7 @@ Wallet-dashboard - инструмент для визуализации и ан�
 
 <div align="center">
 
-<image src="public/forgit/forgit.png" height="auto" width="650">
+<image src="public/git.png" height="auto" width="650">
   
 </div>
 
