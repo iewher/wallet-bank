@@ -1,8 +1,8 @@
 .Block {
   grid-column-end: span 4;
+  grid-row-end: 1;
   display: flex;
-  gap: 10px;
-  width: 100%;
+  gap: 25px;
   height: fit-content;
 
   .Card {
