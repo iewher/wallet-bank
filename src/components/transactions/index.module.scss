@@ -1,9 +1,8 @@
 .Transactions {
   border: 1px solid #e6e9ee;
   border-radius: 12px;
-  grid-row-end: span 2;
+  grid-column-end: span 2;
   padding: 16px;
-  width: 100%;
   display: flex;
   flex-direction: column;
   height: fit-content;
@@ -12,14 +11,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    button {
-      font-size: 16px;
-      color: #00b3ff;
-      background-color: white;
-      border: none;
-      cursor: pointer;
-    }
   }
 
   .View {
@@ -35,7 +26,7 @@
 
     .Title {
       display: flex;
-      flex-direction: column;
+      gap: 20px;
 
       p {
         font-size: clamp(13px, 1vw, 16px);

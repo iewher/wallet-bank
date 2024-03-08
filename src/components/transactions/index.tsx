@@ -1,6 +1,4 @@
-"use client";
-
-import { useState } from "react";
+import { PrimaryButton } from "../buttons";
 import styles from "./index.module.scss";
 
 interface CardProsp {
@@ -30,13 +28,11 @@ const Card: React.FunctionComponent<CardProsp> = ({ title, date, value }) => {
 };
 
 const Transactions: React.FunctionComponent = () => {
-  const [openModal, setOpenModal] = useState(false);
-
   return (
     <div className={styles.Transactions}>
       <div className={styles.Title}>
         <h1>History Transactions</h1>
-        <button onClick={() => setOpenModal(true)}>View all</button>
+        <PrimaryButton>View all</PrimaryButton>
       </div>
       <div className={styles.View}>
         <Card title="Order Revenue" date="Apr 27, 22" value={874} />

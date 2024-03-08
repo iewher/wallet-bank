@@ -9,9 +9,7 @@ import styles from "./page.module.scss";
 const Page: React.FunctionComponent = () => {
   return (
     <div className={styles.Page}>
-      <div>
-        <Sidebar />
-      </div>
+      <Sidebar />
       <div className={styles.Content}>
         <Block />
         <Chart />
