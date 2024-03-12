@@ -1,15 +1,19 @@
+"use client";
+
 import { FiDatabase, FiSettings, FiUser } from "react-icons/fi";
 import { PrimaryButton } from "../buttons";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import styles from "./index.module.scss";
 
-// interface HeaderProps {}
-
 const Header: React.FunctionComponent = () => {
+  const router = useRouter();
+
   return (
     <div className={styles.Header}>
       <div className={styles.Logo}>
         <FiDatabase />
-        <p>Wallet Dashboard</p>
+        <Link href={"/"}>Wallet Dashboard</Link>
       </div>
       <div className={styles.Navigations}>
         <PrimaryButton>Overview</PrimaryButton>
@@ -18,11 +22,11 @@ const Header: React.FunctionComponent = () => {
         <PrimaryButton>Activity</PrimaryButton>
       </div>
       <div className={styles.Actions}>
-        <PrimaryButton>
+        {/* <PrimaryButton>
           <FiSettings />
-        </PrimaryButton>
-        <PrimaryButton>
-          <FiUser />
+        </PrimaryButton> */}
+        <PrimaryButton onClick={() => router.push("/auth")} icon={<FiUser/>}>
+          Войти
         </PrimaryButton>
       </div>
     </div>

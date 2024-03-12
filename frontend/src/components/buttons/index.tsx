@@ -5,13 +5,13 @@ type ButtonProps = {
   children: React.ReactNode;
   loading?: boolean;
   icon?: React.ReactNode;
-} & React.ComponentPropsWithoutRef<"button">;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const PrimaryButton = (props: ButtonProps) => {
-  const { children, loading, icon } = props;
+  const { children, loading, icon, ...buttonProps } = props;
 
   return (
-    <button className={styles.Button}>
+    <button className={styles.Button} {...buttonProps}>
       {loading && <FiLoader />}
       {!loading && icon}
       {children}

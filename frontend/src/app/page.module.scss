@@ -6,7 +6,7 @@
   .Content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(6, 100px); 
+    grid-template-rows: repeat(6, 100px);
     gap: 25px;
     grid-auto-rows: auto;
     width: 100%;
