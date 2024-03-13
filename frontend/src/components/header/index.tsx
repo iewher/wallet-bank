@@ -25,7 +25,7 @@ const Header: React.FunctionComponent = () => {
         {/* <PrimaryButton>
           <FiSettings />
         </PrimaryButton> */}
-        <PrimaryButton onClick={() => router.push("/auth")} icon={<FiUser/>}>
+        <PrimaryButton onClick={() => router.push("/auth")} icon={<FiUser />}>
           Войти
         </PrimaryButton>
       </div>
