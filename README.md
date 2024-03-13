@@ -1,5 +1,12 @@
 # Wallet dashboard
 
+## Запуск базы данных
+В корневой папке
+```bash
+docker-compose up
+```
+
+
 ## Запуск бэкенда
 
 ```bash
@@ -15,3 +22,4 @@ cd frontend
 
 npm run dev
 ```
+
