@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -14,12 +15,12 @@ import (
 
 type Users struct {
 	Id       string `json:"id"`
-	Username string `json:"name"`
+	Username string `json:"username"`
 	Email    string `json:"email"`
 	Password string `json:"password"`
 }
 
-// var userData []Users
+var userData []Users
 
 func getUsers(w http.ResponseWriter, r *http.Request) {
 
@@ -55,25 +56,41 @@ func getUsers(w http.ResponseWriter, r *http.Request) {
 
 }
 
-// func createUsers(w http.ResponseWriter, r *http.Request) {
-// 	connStr := "user=postgres password=postgres dbname=postgres sslmode=disable"
-// 	db, err := sql.Open("postgres", connStr)
-// 	if err != nil {
-// 		panic(err)
-// 	}
-// 	defer db.Close()
+func createUsers(w http.ResponseWriter, r *http.Request) {
+	var newUser Users
 
-// 	result, err := db.Exec("INSERT INTO users (username, email, password) VALUES ('test_create', 'test@test.ru', 'test')")
-// 	if err != nil {
-// 		panic(err)
-// 	}
-// 	fmt.Println(result)
-// }
+	err := json.NewDecoder(r.Body).Decode(&newUser)
+
+	if err != nil {
+		log.Println("Произошла ошибка при добавлении пользователя в базу данных")
+	} else {
+		log.Println("Пользователь успешно добавлен в базу данных")
+	}
+
+	connStr := "user=postgres password=postgres dbname=postgres sslmode=disable"
+	db, err := sql.Open("postgres", connStr)
+	if err != nil {
+		panic(err)
+	}
+	defer db.Close()
+
+	result, err := db.Exec("INSERT INTO users (username, email, password) VALUES ($1, $2, $3)", newUser.Username, newUser.Email, newUser.Password)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(result)
+
+	userData = append(userData, newUser)
+
+	w.WriteHeader(http.StatusCreated)
+}
 
 func main() {
 	r := mux.NewRouter()
 
-	r.HandleFunc("/getUsers", getUsers).Methods(http.MethodGet)
+	r.HandleFunc("/users", getUsers).Methods(http.MethodGet)
+	r.HandleFunc("/users", createUsers).Methods(http.MethodPost)
 
 	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type"})
 	originsOk := handlers.AllowedOrigins([]string{"*"})
