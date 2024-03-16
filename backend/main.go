@@ -2,66 +2,78 @@ package main
 
 import (
 	"database/sql"
-	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
+
+	_ "github.com/lib/pq"
 )
 
 type Users struct {
+	Id       string `json:"id"`
 	Username string `json:"name"`
 	Email    string `json:"email"`
 	Password string `json:"password"`
 }
 
-var userData []Users
-var db *sql.DB
+// var userData []Users
 
 func getUsers(w http.ResponseWriter, r *http.Request) {
-	jsonData, err := json.Marshal(userData)
-	if err != nil {
-		http.Error(w, "Ошибка при кодировании JSON", http.StatusInternalServerError)
-		return
-	}
 
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	w.Write(jsonData)
-}
+	connStr := "user=postgres password=postgres dbname=postgres sslmode=disable"
+	db, err := sql.Open("postgres", connStr)
 
-func createUsers(w http.ResponseWriter, r *http.Request) {
-	var newData Users
-	err := json.NewDecoder(r.Body).Decode(&newData)
 	if err != nil {
-		http.Error(w, "Ошибка при декодировании JSON", http.StatusBadRequest)
-		return
-	}
-
-	db, err := sql.Open("postgres", "user=postgres dbname=wallet-db password=postgres")
-	if err != nil {
-		http.Error(w, "Ошибка при подключении к базе данных", http.StatusInternalServerError)
-		return
+		log.Println(err)
 	}
 	defer db.Close()
 
-	_, err = db.Exec("INSERT INTO users (name, email, password) VALUES ($1, $2, $3)", newData.Username, newData.Email, newData.Password)
+	rows, err := db.Query("SELECT * FROM users")
 	if err != nil {
-		http.Error(w, "Ошибка при добавлении данных в базу данных", http.StatusInternalServerError)
-		return
+		panic(err)
+	}
+	defer rows.Close()
+	products := []Users{}
+
+	for rows.Next() {
+		u := Users{}
+		err := rows.Scan(&u.Id, &u.Username, &u.Email, &u.Password)
+
+		if err != nil {
+			fmt.Println(err)
+			continue
+		}
+		products = append(products, u)
 	}
 
-	userData = append(userData, newData)
+	for _, p := range products {
+		fmt.Println(p.Id, p.Username, p.Email, p.Password)
+	}
 
-	w.WriteHeader(http.StatusCreated)
 }
+
+// func createUsers(w http.ResponseWriter, r *http.Request) {
+// 	connStr := "user=postgres password=postgres dbname=postgres sslmode=disable"
+// 	db, err := sql.Open("postgres", connStr)
+// 	if err != nil {
+// 		panic(err)
+// 	}
+// 	defer db.Close()
+
+// 	result, err := db.Exec("INSERT INTO users (username, email, password) VALUES ('test_create', 'test@test.ru', 'test')")
+// 	if err != nil {
+// 		panic(err)
+// 	}
+// 	fmt.Println(result)
+// }
 
 func main() {
 	r := mux.NewRouter()
 
-	r.HandleFunc("/get", getUsers).Methods(http.MethodGet)
-	r.HandleFunc("/createUser", createUsers).Methods(http.MethodPost)
+	r.HandleFunc("/getUsers", getUsers).Methods(http.MethodGet)
 
 	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type"})
 	originsOk := handlers.AllowedOrigins([]string{"*"})
