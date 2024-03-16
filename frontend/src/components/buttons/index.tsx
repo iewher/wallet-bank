@@ -11,7 +11,19 @@ export const PrimaryButton = (props: ButtonProps) => {
   const { children, loading, icon, ...buttonProps } = props;
 
   return (
-    <button className={styles.Button} {...buttonProps}>
+    <button className={styles.Primary} {...buttonProps}>
+      {loading && <FiLoader />}
+      {!loading && icon}
+      {children}
+    </button>
+  );
+};
+
+export const SecondaryButton = (props: ButtonProps) => {
+  const { children, loading, icon, ...buttonProps } = props;
+
+  return (
+    <button className={styles.Secondary}>
       {loading && <FiLoader />}
       {!loading && icon}
       {children}

@@ -1,6 +1,13 @@
 "use client";
 
-import { FiDatabase, FiSettings, FiUser } from "react-icons/fi";
+import {
+  FiDatabase,
+  FiUser,
+  FiActivity,
+  FiMonitor,
+  FiInfo,
+  FiCreditCard,
+} from "react-icons/fi";
 import { PrimaryButton } from "../buttons";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -16,15 +23,12 @@ const Header: React.FunctionComponent = () => {
         <Link href={"/"}>Wallet Dashboard</Link>
       </div>
       <div className={styles.Navigations}>
-        <PrimaryButton>Overview</PrimaryButton>
-        <PrimaryButton>Transaction</PrimaryButton>
-        <PrimaryButton>Invoice</PrimaryButton>
-        <PrimaryButton>Activity</PrimaryButton>
+        <PrimaryButton icon={<FiInfo />}>Обзор</PrimaryButton>
+        <PrimaryButton icon={<FiMonitor />}>Транзакции</PrimaryButton>
+        <PrimaryButton icon={<FiCreditCard />}>Кошелек</PrimaryButton>
+        <PrimaryButton icon={<FiActivity />}>Активность</PrimaryButton>
       </div>
       <div className={styles.Actions}>
-        {/* <PrimaryButton>
-          <FiSettings />
-        </PrimaryButton> */}
         <PrimaryButton onClick={() => router.push("/auth")} icon={<FiUser />}>
           Войти
         </PrimaryButton>

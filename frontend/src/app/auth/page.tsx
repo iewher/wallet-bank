@@ -10,14 +10,23 @@ const Page = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  fetch("http://localhost:8080/getUsers", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+
   const createUser = (e: React.FormEvent) => {
     e.preventDefault();
 
     const user = {
-      username: username,
-      email: email,
-      password: password
-    }
+      Username: username,
+      Email: email,
+      Password: password,
+    };
 
     fetch("http://localhost:8080/createUser", {
       method: "POST",
@@ -96,7 +105,7 @@ const Page = () => {
           <input placeholder="Username" name="username" type="text" />
           <input placeholder="Password" name="password" type="password" />
         </div>
-        <PrimaryButton type="submit">Войти</PrimaryButton>
+        <PrimaryButton type="button">Войти</PrimaryButton>
       </form>
     </div>
   );
