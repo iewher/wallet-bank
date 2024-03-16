@@ -10,39 +10,38 @@ const Page = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  fetch("http://localhost:8080/getUsers", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+  const getUsers = () => {
+    fetch("http://localhost:8080/getUsers", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
 
   const createUser = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const user = {
-      Username: username,
-      Email: email,
-      Password: password,
-    };
-
-    fetch("http://localhost:8080/createUser", {
+    fetch("http://localhost:8080/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify({
+        Username: username,
+        Email: email,
+        password: password,
+      }),
     })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        return response.json();
       })
       .then((data) => {
-        console.log("POST запрос успешно выполнен:", data);
+        console.log("POST запрос успешно выполнен");
       })
       .catch((error) => {
         console.error("Произошла ошибка при выполнении POST запроса:", error);
