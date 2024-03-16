@@ -11,8 +11,14 @@ docker-compose up
 
 ```bash
 cd backend
-
+```
+Через Go
+```bash
 go run main.go
+```
+Через Makefile
+```bash
+make run
 ```
 
 ## Запуск фронтенда
