@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { PrimaryButton } from "@/components/buttons";
 import styles from "./page.module.scss";
 
@@ -9,22 +9,36 @@ const Page = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const getUsers = () => {
-    fetch("http://localhost:8080/getUsers", {
-      method: "GET",
+  const getUsers = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    setTimeout(() => {
+      console.log("Delayed for 3 second.");
+    }, 3000);
+
+    fetch("http://localhost:8080/user/login", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        Username: username,
+        Password: password,
+      }),
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+
+    setLoading(false);
   };
 
   const createUser = (e: React.FormEvent) => {
     e.preventDefault();
 
-    fetch("http://localhost:8080/users", {
+    fetch("http://localhost:8080/user/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -99,12 +113,26 @@ const Page = () => {
         </button>
         <button onClick={() => setActiveTab("register")}>Регистрация</button>
       </div>
-      <form>
+      <form onSubmit={getUsers}>
         <div className={styles.Inputs}>
-          <input placeholder="Username" name="username" type="text" />
-          <input placeholder="Password" name="password" type="password" />
+          <input
+            placeholder="Username"
+            name="username"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            placeholder="Password"
+            name="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
-        <PrimaryButton type="button">Войти</PrimaryButton>
+        <PrimaryButton type="submit" loading={loading}>
+          Войти
+        </PrimaryButton>
       </form>
     </div>
   );

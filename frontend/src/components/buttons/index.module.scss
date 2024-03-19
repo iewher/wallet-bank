@@ -18,3 +18,15 @@
     color: #00b3ff;
   }
 }
+
+.rotate {
+  @keyframes rotate {
+    0% {
+      rotate: 0deg;
+    }
+    100% {
+      rotate: 90deg;
+    }
+  }
+  animation: rotate 1s ease-out infinite;
+}
