@@ -22,7 +22,18 @@ type Users struct {
 
 var userData []Users
 
+// Функция проверки наличия пользователя в базе данных
 func getUsers(w http.ResponseWriter, r *http.Request) {
+
+	var user Users
+
+	err := json.NewDecoder(r.Body).Decode(&user)
+
+	log.Printf(user.Username)
+
+	if err != nil {
+		log.Printf("не удалось получить пользователя")
+	}
 
 	connect := "user=postgres password=postgres dbname=postgres sslmode=disable"
 	db, err := sql.Open("postgres", connect)
@@ -50,12 +61,26 @@ func getUsers(w http.ResponseWriter, r *http.Request) {
 		products = append(products, u)
 	}
 
+	returnedValue := false
+
 	for _, p := range products {
-		fmt.Println(p.Id, p.Username, p.Email, p.Password)
+		if p.Username == user.Username && p.Password == user.Password {
+			returnedValue = true
+			break
+		}
+	}
+
+	if returnedValue {
+		w.Write([]byte("true"))
+		log.Printf("Такой пользователь существует")
+	} else {
+		w.Write([]byte("false"))
+		log.Printf("Такой пользователь не существует")
 	}
 
 }
 
+// Функция создания пользователя в базе данных
 func createUsers(w http.ResponseWriter, r *http.Request) {
 	var newUser Users
 
@@ -64,7 +89,7 @@ func createUsers(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println("Произошла ошибка при добавлении пользователя в базу данных")
 	} else {
-		log.Println("Пользователь успешно добавлен в базу данных")
+		log.Printf("Пользователь %s успешно добавлен в базу данных", newUser.Username)
 	}
 
 	connect := "user=postgres password=postgres dbname=postgres sslmode=disable"
@@ -89,8 +114,8 @@ func createUsers(w http.ResponseWriter, r *http.Request) {
 func main() {
 	r := mux.NewRouter()
 
-	r.HandleFunc("/users", getUsers).Methods(http.MethodGet)
-	r.HandleFunc("/users", createUsers).Methods(http.MethodPost)
+	r.HandleFunc("/user/login", getUsers).Methods(http.MethodPost)
+	r.HandleFunc("/user/register", createUsers).Methods(http.MethodPost)
 
 	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type"})
 	originsOk := handlers.AllowedOrigins([]string{"*"})
