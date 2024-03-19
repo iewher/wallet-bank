@@ -24,8 +24,8 @@ var userData []Users
 
 func getUsers(w http.ResponseWriter, r *http.Request) {
 
-	connStr := "user=postgres password=postgres dbname=postgres sslmode=disable"
-	db, err := sql.Open("postgres", connStr)
+	connect := "user=postgres password=postgres dbname=postgres sslmode=disable"
+	db, err := sql.Open("postgres", connect)
 
 	if err != nil {
 		log.Println(err)
@@ -67,8 +67,8 @@ func createUsers(w http.ResponseWriter, r *http.Request) {
 		log.Println("Пользователь успешно добавлен в базу данных")
 	}
 
-	connStr := "user=postgres password=postgres dbname=postgres sslmode=disable"
-	db, err := sql.Open("postgres", connStr)
+	connect := "user=postgres password=postgres dbname=postgres sslmode=disable"
+	db, err := sql.Open("postgres", connect)
 	if err != nil {
 		panic(err)
 	}
