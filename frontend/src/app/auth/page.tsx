@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { PrimaryButton } from "@/components/buttons";
+import { useRouter } from "next/navigation";
+import { login } from "@/lib/backend/user";
 import styles from "./page.module.scss";
 
 const Page = () => {
@@ -11,13 +13,11 @@ const Page = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const router = useRouter();
+
   const getUsers = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-
-    setTimeout(() => {
-      console.log("Delayed for 3 second.");
-    }, 3000);
 
     fetch("http://localhost:8080/user/login", {
       method: "POST",
@@ -30,7 +30,7 @@ const Page = () => {
       }),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => data === true && login());
 
     setLoading(false);
   };

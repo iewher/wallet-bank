@@ -11,10 +11,12 @@ import {
 import { PrimaryButton } from "../buttons";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { currentUser } from "@/lib/backend/user";
 import styles from "./index.module.scss";
 
 const Header: React.FunctionComponent = () => {
   const router = useRouter();
+  const user = currentUser();
 
   return (
     <div className={styles.Header}>
@@ -29,9 +31,15 @@ const Header: React.FunctionComponent = () => {
         <PrimaryButton icon={<FiActivity />}>Активность</PrimaryButton>
       </div>
       <div className={styles.Actions}>
-        <PrimaryButton onClick={() => router.push("/auth")} icon={<FiUser />}>
-          Войти
-        </PrimaryButton>
+        {user ? (
+          <PrimaryButton onClick={() => router.push("/profile")}>
+            Профиль
+          </PrimaryButton>
+        ) : (
+          <PrimaryButton onClick={() => router.push("/auth")} icon={<FiUser />}>
+            Войти
+          </PrimaryButton>
+        )}
       </div>
     </div>
   );
