@@ -1,0 +1,22 @@
+name: Test frontend
+
+on:
+  pull_request:
+    branches: ["master"]
+    paths:
+      - "frontend/**"
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
+      - run: npx -y prettier --check .
+        working-directory: ./frontend
