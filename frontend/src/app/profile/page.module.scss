@@ -1,36 +1,14 @@
-.Profile {
+.Page {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 0 16px;
+  margin-bottom: 100px;
   gap: 50px;
-  width: 100%;
-  height: calc(100vh - 150px);
-  padding: 16px;
 
-  h1 {
-    margin-bottom: 50px;
-  }
-
-  .Image {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
+  .Content {
+    min-height: 100vh;
+    padding: 16px;
+    width: 100%;
     border: 1px solid #ddd;
-    background-color: white;
-    cursor: pointer;
-  }
-
-  .Description {
-    text-align: center;
-    height: fit-content;
-    max-width: 250px;
-    min-width: 250px;
-    word-break: break-word;
-    border: 1px solid #ddd;
-  }
-
-  .Actions {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    border-radius: 5px;
   }
 }
