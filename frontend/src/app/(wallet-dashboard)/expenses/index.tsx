@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import styles from "./index.module.scss";
 
 interface PriceProps {
@@ -8,10 +5,10 @@ interface PriceProps {
   price: number;
 }
 
-const Price: React.FunctionComponent<PriceProps> = ({ title, price }) => {
+const Price = ({ title, price }: PriceProps) => {
   return (
     <div className={styles.Price}>
-      <div className={styles.Title}>
+      <div className={styles.Name}>
         <p>{title}</p>
       </div>
       <div className={styles.Number}>
@@ -21,15 +18,17 @@ const Price: React.FunctionComponent<PriceProps> = ({ title, price }) => {
   );
 };
 
-const Expenses: React.FunctionComponent = () => {
+const Expenses = () => {
   return (
     <div className={styles.Expenses}>
       <div className={styles.Title}>
         <h1>All Expenses</h1>
       </div>
-      <Price title="Daily" price={475} />
-      <Price title="Weekly" price={3327} />
-      <Price title="Monthly" price={12131} />
+      <div className={styles.List}>
+        <Price title="Daily" price={475} />
+        <Price title="Weekly" price={3327} />
+        <Price title="Monthly" price={12131} />
+      </div>
     </div>
   );
 };

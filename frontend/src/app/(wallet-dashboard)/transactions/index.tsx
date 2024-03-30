@@ -1,4 +1,4 @@
-import { PrimaryButton } from "../buttons";
+import { PrimaryButton } from "../../../components/buttons";
 import styles from "./index.module.scss";
 
 interface CardProsp {
@@ -7,27 +7,21 @@ interface CardProsp {
   value: number;
 }
 
-const Card: React.FunctionComponent<CardProsp> = ({ title, date, value }) => {
+const Card = ({ title, date, value }: CardProsp) => {
   return (
     <div className={styles.Card}>
-      <div className={styles.Title}>
+      <div className={styles.Name}>
         <p>{title}</p>
         <p>{date}</p>
       </div>
-      {value > 0 ? (
-        <div className={styles.Plus}>
-          <p>{value + " $"}</p>
-        </div>
-      ) : (
-        <div className={styles.Minus}>
-          <p>{value + " $"}</p>
-        </div>
-      )}
+      <div className={styles.Value}>
+        <p className={value > 0 ? styles.plus : styles.minus}>{value + " $"}</p>
+      </div>
     </div>
   );
 };
 
-const Transactions: React.FunctionComponent = () => {
+const Transactions = () => {
   return (
     <div className={styles.Transactions}>
       <div className={styles.Title}>

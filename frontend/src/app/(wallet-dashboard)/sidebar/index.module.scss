@@ -44,13 +44,17 @@
       }
     }
 
-    .Currency {
+    .Info {
       margin-top: 40px;
       display: flex;
       justify-content: space-between;
 
       .Currency,
       .Status {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
         p {
           &:nth-child(1) {
             color: #afafaf;

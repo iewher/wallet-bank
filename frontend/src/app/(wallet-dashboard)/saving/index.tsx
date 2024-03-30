@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
-import { PrimaryButton } from "../buttons";
+import { useState } from "react";
+import { PrimaryButton } from "../../../components/buttons";
+import { Progress } from "antd";
 import styles from "./index.module.scss";
 
 interface ListProps {
@@ -9,29 +10,30 @@ interface ListProps {
   price: number;
 }
 
-const List: React.FunctionComponent<ListProps> = ({ title, price }) => {
+const List = ({ title, price }: ListProps) => {
   return (
     <div className={styles.List}>
-      <div className={styles.Title}>
-        <p>{title}</p>
+      <div className={styles.Info}>
+        <div className={styles.Name}>
+          <p>{title}</p>
+        </div>
+        <div className={styles.Price}>
+          <p>{"$" + price}</p>
+        </div>
       </div>
-      <div className={styles.Price}>
-        <p>{"$" + price}</p>
+      <div className={styles.Progress}>
+        <Progress percent={price} />
       </div>
     </div>
   );
 };
 
-const Saving: React.FunctionComponent = () => {
-  const [openModal, setOpenModal] = useState<boolean>(false);
-
+const Saving = () => {
   return (
     <div className={styles.Saving}>
       <div className={styles.Title}>
         <h1>My Savings</h1>
-        <PrimaryButton onClick={() => setOpenModal(true)}>
-          View all
-        </PrimaryButton>
+        <PrimaryButton>View all</PrimaryButton>
       </div>
       <div className={styles.Lists}>
         <List title="Gaming PC" price={309} />

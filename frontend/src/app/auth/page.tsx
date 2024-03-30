@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { PrimaryButton } from "@/components/buttons";
+import { PrimaryButton } from "@/app/(wallet-dashboard)/buttons";
 import { useRouter } from "next/navigation";
 import { login } from "@/lib/backend/user";
 import styles from "./page.module.scss";

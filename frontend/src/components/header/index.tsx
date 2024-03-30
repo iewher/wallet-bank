@@ -8,13 +8,13 @@ import {
   FiInfo,
   FiCreditCard,
 } from "react-icons/fi";
-import { PrimaryButton } from "../buttons";
+import { SecondaryButton, PrimaryButton } from "../buttons";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { currentUser } from "@/lib/backend/user";
+import Link from "next/link";
 import styles from "./index.module.scss";
 
-const Header: React.FunctionComponent = () => {
+const Header = () => {
   const router = useRouter();
   const user = currentUser();
 
@@ -25,10 +25,10 @@ const Header: React.FunctionComponent = () => {
         <Link href={"/"}>Wallet Dashboard</Link>
       </div>
       <div className={styles.Navigations}>
-        <PrimaryButton icon={<FiInfo />}>Обзор</PrimaryButton>
-        <PrimaryButton icon={<FiMonitor />}>Транзакции</PrimaryButton>
-        <PrimaryButton icon={<FiCreditCard />}>Кошелек</PrimaryButton>
-        <PrimaryButton icon={<FiActivity />}>Активность</PrimaryButton>
+        <SecondaryButton icon={<FiInfo />}>Обзор</SecondaryButton>
+        <SecondaryButton icon={<FiMonitor />}>Транзакции</SecondaryButton>
+        <SecondaryButton icon={<FiCreditCard />}>Кошелек</SecondaryButton>
+        <SecondaryButton icon={<FiActivity />}>Активность</SecondaryButton>
       </div>
       <div className={styles.Actions}>
         {user ? (

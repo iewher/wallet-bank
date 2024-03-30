@@ -1,4 +1,3 @@
-import React from "react";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import styles from "./index.module.scss";
@@ -9,11 +8,11 @@ interface CardProps {
   proc: number;
 }
 
-const Card: React.FunctionComponent<CardProps> = ({ title, balance, proc }) => {
+const Card = ({ title, balance, proc }: CardProps) => {
   return (
     <div className={styles.Card}>
       <div className={styles.Number}>
-        <p>{title}</p>
+        <h4>{title}</h4>
         <p>$ {balance}</p>
       </div>
       <div className={styles.Proc}>
@@ -24,7 +23,7 @@ const Card: React.FunctionComponent<CardProps> = ({ title, balance, proc }) => {
           </div>
         ) : (
           <div className={styles.Minus}>
-            <AiOutlineArrowUp />
+            <AiOutlineArrowDown />
             <p className={styles.Minus}>{proc + "%"}</p>
           </div>
         )}
@@ -33,7 +32,7 @@ const Card: React.FunctionComponent<CardProps> = ({ title, balance, proc }) => {
   );
 };
 
-const Block: React.FunctionComponent = () => {
+const Block = () => {
   return (
     <div className={styles.Block}>
       <Card title="My Balance" balance="128,320" proc={55} />

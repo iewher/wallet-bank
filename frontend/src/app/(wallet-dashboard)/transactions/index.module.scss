@@ -12,40 +12,41 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
   }
 
   .View {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 15px;
   }
+}
 
-  .Card {
+.Card {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .Name {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
+    gap: 20px;
 
-    .Title {
-      display: flex;
-      gap: 20px;
+    p {
+      font-size: clamp(13px, 1vw, 16px);
 
-      p {
-        font-size: clamp(13px, 1vw, 16px);
-
-        &:nth-child(1) {
-          font-weight: bold;
-        }
+      &:nth-child(1) {
+        font-weight: bold;
       }
     }
+  }
 
-    .Value {
-      &-plus {
-        color: #41da90;
-      }
+  .Value {
+    .plus {
+      color: #41da90;
+    }
 
-      .Minus {
-        color: #e74a51;
-      }
+    .minus {
+      color: #e74a51;
     }
   }
 }

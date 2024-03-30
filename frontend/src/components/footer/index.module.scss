@@ -4,6 +4,7 @@
   border: 1px solid #ddd;
   padding: 32px;
   display: flex;
+  justify-content: space-between;
   gap: 30px;
 
   .Logo {
@@ -28,7 +29,7 @@
         transition: 0.15s;
 
         &:hover {
-          color: #ddd;
+          text-decoration: underline;
         }
       }
     }

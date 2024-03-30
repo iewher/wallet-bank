@@ -3,17 +3,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   padding: 8px 16px;
-  border-radius: 12px;
+  border-radius: 5px;
   font-size: 16px;
   background-color: #00b3ff;
   color: white;
-  border: 1px solid #00b3ff;
   cursor: pointer;
-  transition: 0.15s;
-  height: 40px;
-  font-weight: bold;
+  transition: 0.15s ease;
+  border: none;
 
   &:hover {
     background-color: white;
@@ -22,9 +20,14 @@
 }
 
 .Secondary {
-  background-color: #ffff;
+  background-color: #f5f5f5;
   color: black;
   border: none;
+
+  &:hover {
+    background-color: black;
+    color: #fff;
+  }
 }
 
 .rotate {
