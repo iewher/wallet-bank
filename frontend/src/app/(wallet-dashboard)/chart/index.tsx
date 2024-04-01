@@ -1,12 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import { LineChart } from "@mui/x-charts/LineChart";
 import { PrimaryButton, SecondaryButton } from "../../../components/buttons";
 import styles from "./index.module.scss";
 
 const Chart = () => {
-  const data = [30, 60, 35, 70, 85, 75];
-  const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+  const [data, setData] = useState([
+    { data: "30", labels: "Jan" },
+    { data: "50", labels: "Feb" },
+    { data: "10", labels: "Mar" },
+    { data: "65", labels: "Apr" },
+    { data: "100", labels: "May" },
+    { data: "30", labels: "Jun" },
+  ]);
 
   return (
     <div className={styles.Chart}>
@@ -19,8 +26,10 @@ const Chart = () => {
       </div>
       <div className={styles.Line}>
         <LineChart
-          series={[{ data: data, color: "#00b3ff" }]}
-          xAxis={[{ scaleType: "point", data: labels }]}
+          series={[
+            { data: data.map((i) => i.data).map(Number), color: "#00b3ff" },
+          ]}
+          xAxis={[{ scaleType: "point", data: data.map(i => i.labels) }]}
         />
       </div>
     </div>
