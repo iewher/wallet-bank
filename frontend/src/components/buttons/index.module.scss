@@ -12,10 +12,17 @@
   cursor: pointer;
   transition: 0.15s ease;
   border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
   &:hover {
     background-color: white;
     color: #00b3ff;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
   }
 }
 

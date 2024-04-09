@@ -1,6 +1,10 @@
 .Input {
   input {
     width: 100%;
-    text-indent: 50px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 }

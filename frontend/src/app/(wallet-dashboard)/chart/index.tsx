@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { LineChart } from "@mui/x-charts/LineChart";
 import { PrimaryButton } from "../../../components/buttons";
-import { Modal } from "antd";
+import Modal from "antd/es/modal/Modal";
 import styles from "./index.module.scss";
 
 type DataProps = {
