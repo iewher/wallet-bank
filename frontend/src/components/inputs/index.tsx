@@ -2,16 +2,16 @@ import styles from "./index.module.scss";
 
 type InputProps = {
   icon?: React.ReactNode;
+  label: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-const Input = (props: InputProps) => {
-  const { icon, ...inputProps } = props;
+export const Input = (props: InputProps) => {
+  const { icon, name, ...inputProps } = props;
 
   return (
     <div className={styles.Input}>
-      <input {...inputProps} />
+      <label htmlFor={props.name}>{props.label}</label>
+      <input {...inputProps} name={props.name} />
     </div>
   );
 };
-
-export default Input;

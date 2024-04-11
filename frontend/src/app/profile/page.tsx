@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { SecondaryButton, PrimaryButton } from "@/components/buttons";
-import Input from "@/components/inputs";
 import SidebarProfile from "./sidebar";
 import Modal from "antd/es/modal/Modal";
+import { Textarea, Input, SecondaryButton, PrimaryButton } from "@/components";
 import { FiSave, FiPlus } from "react-icons/fi";
 import styles from "./page.module.scss";
 
@@ -16,7 +15,7 @@ interface ListProps {
 
 interface PostForm extends HTMLFormElement {
   postTitle: HTMLInputElement;
-  content: HTMLInputElement;
+  content: HTMLTextAreaElement;
 }
 
 const ProfilePage = () => {
@@ -81,10 +80,8 @@ const ProfilePage = () => {
       >
         <h3>Добавить пост</h3>
         <form onSubmit={submit}>
-          <label htmlFor="postTitle">Название</label>
-          <Input name="postTitle" />
-          <label htmlFor="content">Текст</label>
-          <Input name="content" />
+          <Input name="postTitle" label="Название" />
+          <Textarea name="content" label="Текст" />
           <PrimaryButton type="submit" icon={<FiSave />}>
             Сохранить
           </PrimaryButton>

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import { PrimaryButton, SecondaryButton } from "../../../components/buttons";
