@@ -1,4 +1,8 @@
 .Input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
   input {
     width: 100%;
     padding: 8px 16px;

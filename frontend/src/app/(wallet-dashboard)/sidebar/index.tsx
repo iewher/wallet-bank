@@ -3,7 +3,7 @@
 import { AiOutlineArrowUp } from "react-icons/ai";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import { PrimaryButton, SecondaryButton } from "../../../components/buttons";
-import Input from "../../../components/inputs";
+import { Input } from "@/components";
 import styles from "./index.module.scss";
 
 const Sidebar = () => {
@@ -41,8 +41,7 @@ const Sidebar = () => {
       <div className={styles.Transfer}>
         <h1>Quick Transfer</h1>
         <div className={styles.Input}>
-          <p>Card Number</p>
-          <Input type="text" />
+          <Input label="Card number" type="text" />
         </div>
         <div className={styles.Send}>
           <PrimaryButton>Send money</PrimaryButton>
