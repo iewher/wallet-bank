@@ -1,8 +1,13 @@
 package service
 
-import "example.com/mymodule/package/repository"
+import (
+	"wallet/user"
+
+	"wallet/package/repository"
+)
 
 type Authorization interface {
+	CreateUser(user user.User) (int, error)
 }
 
 type Service struct {
@@ -10,5 +15,7 @@ type Service struct {
 }
 
 func NewService(repos *repository.Repository) *Service {
-	return &Service{}
+	return &Service{
+		Authorization: NewAuthService(repos.Authorization),
+	}
 }

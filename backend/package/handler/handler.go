@@ -1,7 +1,8 @@
 package handler
 
 import (
-	"example.com/mymodule/package/service"
+	"wallet/package/service"
+
 	"github.com/gin-gonic/gin"
 )
 
