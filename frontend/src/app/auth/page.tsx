@@ -2,18 +2,16 @@
 
 import { useState } from "react";
 import { PrimaryButton } from "@/components/buttons";
-import { useRouter } from "next/navigation";
 import { login } from "@/lib/backend/user";
+import axios from "axios";
 import styles from "./page.module.scss";
 
 const Page = () => {
   const [activeTab, setActiveTab] = useState("login" || "register");
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-
-  const router = useRouter();
 
   const getUsers = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,14 +36,14 @@ const Page = () => {
   const createUser = (e: React.FormEvent) => {
     e.preventDefault();
 
-    fetch("http://localhost:8080/user/register", {
+    fetch("http://localhost:8000/auth/sign-up", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        Username: username,
-        Email: email,
+        name: name,
+        username: username,
         password: password,
       }),
     })
@@ -55,7 +53,7 @@ const Page = () => {
         }
       })
       .then((data) => {
-        console.log("POST запрос успешно выполнен");
+        console.log("POST запрос успешно выполнен", data);
       })
       .catch((error) => {
         console.error("Произошла ошибка при выполнении POST запроса:", error);
@@ -77,18 +75,18 @@ const Page = () => {
         <form onSubmit={createUser}>
           <div className={styles.Inputs}>
             <input
-              placeholder="Username"
-              name="username"
+              placeholder="Name"
+              name="name"
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
             <input
-              placeholder="Email"
-              name="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Username"
+              name="username"
+              type="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <input
               placeholder="Password"

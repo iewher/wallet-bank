@@ -3,6 +3,7 @@ package handler
 import (
 	"wallet/package/service"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,6 +17,13 @@ func NewHandler(services *service.Service) *Handler {
 
 func (h *Handler) InitRoutes() *gin.Engine {
 	router := gin.New()
+
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"*"},
+		AllowMethods:     []string{"GET", "POST"},
+		AllowHeaders:     []string{"X-Requested-With", "Content-Type"},
+		AllowCredentials: true,
+	}))
 
 	auth := router.Group("/auth")
 	{
