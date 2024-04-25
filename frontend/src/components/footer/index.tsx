@@ -1,12 +1,14 @@
 import { FaTelegram, FaGithub } from "react-icons/fa";
 import Link from "next/link";
+import logo from '../../../public/logo.png'
+import Image from "next/image";
 import styles from "./index.module.scss";
 
 const Footer = () => {
   return (
     <div className={styles.Footer}>
       <div className={styles.Logo}>
-        <h2>Wallet-dashboard</h2>
+        <Image src={logo} alt="logo" />
       </div>
       <div className={styles.Nav}>
         <div className={styles.row}>

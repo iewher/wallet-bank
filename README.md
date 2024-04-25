@@ -1,3 +1,5 @@
+![alt text](frontend/public/logo.png)
+
 # Wallet dashboard
 
 ## Запуск базы данных

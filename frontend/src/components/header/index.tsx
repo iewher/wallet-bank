@@ -12,6 +12,8 @@ import { SecondaryButton, PrimaryButton } from "../buttons";
 import { useRouter } from "next/navigation";
 import { currentUser } from "@/lib/backend/user";
 import Link from "next/link";
+import Image from "next/image";
+import logo from '../../../public/logo.png'
 import styles from "./index.module.scss";
 
 const Header = () => {
@@ -21,8 +23,9 @@ const Header = () => {
   return (
     <div className={styles.Header}>
       <div className={styles.Logo}>
-        <FiDatabase />
-        <Link href={"/"}>Wallet Dashboard</Link>
+        <Link href={"/"}>
+          <Image src={logo} alt="logo" height={60} />
+        </Link>
       </div>
       <div className={styles.Navigations}>
         <SecondaryButton icon={<FiInfo />}>Обзор</SecondaryButton>
