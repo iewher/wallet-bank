@@ -53,7 +53,10 @@ const Chart = () => {
           <PrimaryButton onClick={() => setOpenModal(true)}>
             Выбрать
           </PrimaryButton>
-          <select onChange={(e) => setMonth(parseInt(e.target.value))}>
+          <select
+            onChange={(e) => setMonth(parseInt(e.target.value))}
+            defaultValue={3}
+          >
             <option value={1}>1 месяц</option>
             <option value={3}>3 месяц</option>
             <option value={6}>6 месяц</option>

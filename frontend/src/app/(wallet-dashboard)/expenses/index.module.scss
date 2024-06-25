@@ -5,18 +5,23 @@
   border-radius: 12px;
   padding: 16px;
   height: fit-content;
+  transition: 0.1s;
+}
 
-  .Title {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
+.Expenses:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-  .List {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
+.Title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.List {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .Price {

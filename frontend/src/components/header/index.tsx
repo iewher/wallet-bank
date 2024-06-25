@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 import { currentUser } from "@/lib/backend/user";
 import Link from "next/link";
 import Image from "next/image";
-import logo from '../../../public/logo.png'
+import logo from "../../../public/logo.png";
 import styles from "./index.module.scss";
 
 const Header = () => {

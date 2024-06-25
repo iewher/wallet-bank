@@ -5,23 +5,28 @@
   display: flex;
   flex-direction: column;
   padding: 16px;
+  transition: 0.1s;
+}
 
-  .Title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+.Saving:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-    h1 {
-      font-size: 22px;
-    }
+.Title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: 22px;
   }
+}
 
-  .Lists {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
+.Lists {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .List {

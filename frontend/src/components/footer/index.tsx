@@ -1,6 +1,6 @@
 import { FaTelegram, FaGithub } from "react-icons/fa";
 import Link from "next/link";
-import logo from '../../../public/logo.png'
+import logo from "../../../public/logo.png";
 import Image from "next/image";
 import styles from "./index.module.scss";
 
@@ -9,6 +9,10 @@ const Footer = () => {
     <div className={styles.Footer}>
       <div className={styles.Logo}>
         <Image src={logo} alt="logo" />
+      </div>
+      <div className={styles.row}>
+        © 2023 - {new Date().getFullYear()} Cryptocurrency track. All rights
+        reserved
       </div>
       <div className={styles.Nav}>
         <div className={styles.row}>
@@ -20,11 +24,11 @@ const Footer = () => {
         <div className={styles.row}>
           <Link href="https://github.com/iewher/wallet-dashboard">
             <FaGithub />
-            Отслеживай GitHub репозиторий
+            Github
           </Link>
           <Link href="https://t.me/iewher">
             <FaTelegram />
-            Напиши мне в телеграм
+            Telegram
           </Link>
         </div>
       </div>

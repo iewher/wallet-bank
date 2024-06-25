@@ -2,22 +2,14 @@
   display: flex;
   gap: 60px;
   padding: 0 16px;
+}
 
-  .Content {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(6, 100px);
-    gap: 25px;
-    grid-auto-rows: auto;
-    width: 100%;
-    height: fit-content;
-
-    & > div {
-      transition: 0.1s;
-
-      &:hover {
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      }
-    }
-  }
+.Content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 100px);
+  gap: 25px;
+  grid-auto-rows: auto;
+  width: 100%;
+  height: fit-content;
 }
